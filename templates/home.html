@@ -2,6 +2,18 @@
 
 {% block content %}
 
-
-
+<div class="container">
+    <h1 claas="mb-3 mt-3">Books</h1>
+    <ul class="list-group">
+        {% for book in books %}
+            <li class="list-group-item"><a href="{{ url_for(get_book, id=id) }}">{{ book.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <h1 class="mb-3 mt-3">Movies</h1>
+    <ul class="list-group">
+    {% for movie in movies %}
+         <li class="list-group-item"> {{ movie.name }}</li>
+    {% endfor %}
+    </ul>
+</div>
 {% endblock %}
