@@ -17,7 +17,23 @@ class APIHandler:
         r = requests.get(url, headers=self.headers)
         return r.json()['docs']
 
+    def get_movie(self, id):
+        url = f"{self.base_url}/movie/{id}"
+        r = requests.get(url, headers=self.headers)
+        return r.json()['docs'][0]
+
     def get_book(self, id):
         url = f"{self.base_url}/book/{id}"
         r = requests.get(url, headers=self.headers)
+        return r.json()['docs'][0]
+
+    def get_chapters(self, id):
+        url = f"{self.base_url}/book/{id}/chapter"
+        r = requests.get(url, headers=self.headers)
+        return r.json()['docs']
+
+    def get_quotes(self, id):
+        url = f"{self.base_url}/movie/{id}/quote"
+        r = requests.get(url, headers=self.headers)
+        print(r.json())
         return r.json()['docs']
